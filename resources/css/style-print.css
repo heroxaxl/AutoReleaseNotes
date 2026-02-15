@@ -1,0 +1,336 @@
+/* Print Stylesheet for A4 Paper */
+@media print {
+    @page {
+        size: A4;
+        margin: 2cm 1.5cm; /* Default gutters: 2cm top/bottom, 1.5cm left/right */
+    }
+
+    /* Reset body for printing */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 12pt;
+        line-height: 1.4;
+        color: #000;
+        background: #fff;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Header with repository name */
+    @page {
+        @top-center {
+            content: "AutoReleaseNotes";
+            font-size: 10pt;
+            font-weight: bold;
+            color: #000;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5pt;
+            margin-bottom: 10pt;
+        }
+        
+        @bottom-center {
+            content: "https://github.com/username/AutoReleaseNotes";
+            font-size: 9pt;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 5pt;
+            margin-top: 10pt;
+        }
+        
+        @bottom-right {
+            content: "Page " counter(page);
+            font-size: 9pt;
+            color: #666;
+        }
+    }
+
+    /* Typography for print */
+    h1 {
+        font-size: 18pt;
+        font-weight: bold;
+        margin: 20pt 0 15pt 0;
+        page-break-after: avoid;
+        color: #000;
+    }
+
+    h2 {
+        font-size: 16pt;
+        font-weight: bold;
+        margin: 15pt 0 10pt 0;
+        page-break-after: avoid;
+        color: #000;
+        border-bottom: 2px solid #000;
+        padding-bottom: 3pt;
+    }
+
+    h3 {
+        font-size: 14pt;
+        font-weight: bold;
+        margin: 12pt 0 8pt 0;
+        page-break-after: avoid;
+        color: #000;
+    }
+
+    h4, h5, h6 {
+        font-size: 12pt;
+        font-weight: bold;
+        margin: 10pt 0 6pt 0;
+        page-break-after: avoid;
+        color: #000;
+    }
+
+    /* Paragraphs and text */
+    p {
+        margin: 6pt 0;
+        text-align: justify;
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* Lists */
+    ul, ol {
+        margin: 8pt 0;
+        padding-left: 20pt;
+    }
+
+    li {
+        margin: 3pt 0;
+        line-height: 1.4;
+    }
+
+    /* Code blocks */
+    pre, code {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.8em;
+        background: #f2f2f2;
+        border: 1px solid #ddd;
+        padding: 8pt;
+        margin: 8pt 0;
+        page-break-inside: avoid;
+        overflow: hidden;
+    }
+
+    code {
+        padding: 2pt 4pt;
+        background: #f7f7f7;
+        border: none;
+    }
+
+    pre code {
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    pre.sourceCode {
+        background: #f2f2f2;
+        border: 1px solid #ddd;
+    }
+
+    code.sourceCode {
+        background: transparent;
+    }
+
+    a code {
+        border-bottom: 1px dotted #666;
+    }
+
+    .sourceCode .kw { color: #005cc5; font-weight: bold; }
+    .sourceCode .dt { color: #6f42c1; }
+    .sourceCode .dv, .sourceCode .bn, .sourceCode .fl { color: #005cc5; }
+    .sourceCode .st { color: #032f62; }
+    .sourceCode .co { color: #6a737d; font-style: italic; }
+    .sourceCode .fu { color: #6f42c1; }
+    .sourceCode .op { color: #24292e; }
+    .sourceCode .al { color: #b31d28; font-weight: bold; }
+    .sourceCode .er { color: #b31d28; font-weight: bold; }
+    .sourceCode .va { color: #e36209; }
+    .sourceCode .cn { color: #005cc5; }
+    .sourceCode .sc { color: #032f62; }
+    .sourceCode .ss { color: #032f62; }
+
+    /* Blockquotes */
+    blockquote {
+        margin: 10pt 20pt;
+        padding: 8pt 15pt;
+        border-left: 4px solid #ccc;
+        background: #f9f9f9;
+        font-style: italic;
+    }
+
+    /* Tables */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10pt 0;
+        font-size: 10pt;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 6pt 8pt;
+        text-align: left;
+    }
+
+    th {
+        background: #f0f0f0;
+        font-weight: bold;
+    }
+
+    /* Links */
+    a {
+        color: #000;
+        text-decoration: none;
+        border-bottom: 1px dotted #666;
+    }
+
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+        color: #666;
+    }
+
+    /* Images */
+    img {
+        max-width: 100%;
+        height: auto;
+        page-break-inside: avoid;
+        margin: 10pt 0;
+    }
+
+    /* Horizontal rules */
+    hr {
+        border: none;
+        border-top: 1px solid #ccc;
+        margin: 15pt 0;
+    }
+
+    /* Emojis and special characters */
+    .emoji {
+        font-size: 11pt;
+        vertical-align: middle;
+    }
+
+    /* Version sections - avoid page breaks */
+    .version-section {
+        page-break-inside: avoid;
+        margin: 15pt 0;
+    }
+
+    /* Feature lists */
+    .feature-list {
+        margin: 8pt 0;
+    }
+
+    .feature-list li {
+        margin: 4pt 0;
+        list-style-type: none;
+        position: relative;
+        padding-left: 15pt;
+    }
+
+    .feature-list li:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+    }
+
+    /* Breaking changes warning */
+    .breaking-changes {
+        background: #fff3cd;
+        border: 1px solid #ffeaa7;
+        padding: 8pt 12pt;
+        margin: 10pt 0;
+        border-radius: 3pt;
+    }
+
+    /* Bug fixes section */
+    .bug-fixes {
+        background: #d4edda;
+        border: 1px solid #c3e6cb;
+        padding: 8pt 12pt;
+        margin: 10pt 0;
+        border-radius: 3pt;
+    }
+
+    /* Hide screen-only elements */
+    .screen-only,
+    .no-print,
+    nav,
+    .sidebar,
+    .navigation,
+    button,
+    input[type="button"],
+    input[type="submit"],
+    .btn {
+        display: none !important;
+    }
+
+    /* Ensure proper spacing */
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Page break control */
+    .page-break-before {
+        page-break-before: always;
+    }
+
+    .page-break-after {
+        page-break-after: always;
+    }
+
+    .avoid-page-break {
+        page-break-inside: avoid;
+    }
+
+    /* Print optimization */
+    .print-optimization {
+        color: #000 !important;
+        background: #fff !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+}
+
+/* Fallback for browsers that don't support @page */
+@media print and (-webkit-min-device-pixel-ratio:0) {
+    body {
+        padding-top: 30pt;
+        padding-bottom: 30pt;
+    }
+    
+    .print-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-weight: bold;
+        font-size: 10pt;
+        border-bottom: 1px solid #ccc;
+        padding: 5pt 0;
+    }
+    
+    .print-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 9pt;
+        color: #666;
+        border-top: 1px solid #ccc;
+        padding: 5pt 0;
+    }
+    
+    .print-footer-url {
+        position: fixed;
+        bottom: 0;
+        right: 15pt;
+        font-size: 9pt;
+        color: #666;
+    }
+}
